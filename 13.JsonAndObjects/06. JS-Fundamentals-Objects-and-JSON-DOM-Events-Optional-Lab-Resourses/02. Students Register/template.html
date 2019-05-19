@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style/template.css">
+    <title>Students Register</title>
+</head>
+
+<body>
+    <div id="container">
+        <nav id="navigation">
+            <div id="navigation-text">
+                <p id="lecture-name">Objects, JSON and DOM Events</p>
+                <p id="problem-name">02. Students Register</p>
+            </div>
+            <img id="logo-img" src="./images/SoftUniFoundation_Logo_OneLine_White@2x.png" alt="logo">
+        </nav>
+        <main>
+            <div id="exercise">
+                <form>
+                    <label>Students</label>
+                    <textarea type="text" id="input" rows="10" cols="50"></textarea>
+                    <div class="center">
+                        <input type="submit" id="button" onclick="addStudents()" value="Add Students">
+                    </div>
+                </form>
+                <label>Result</label>
+               <textarea readonly rows="10" cols="50" id="result"></textarea>
+            </div>
+            <img id="softUni-person-img" src="./images/cw_2_New_Logo.png" alt="softUni-person">
+        </main>
+        <footer>
+            <p id="footer-text">Check your solution here: <span id="check-judge">Link to judge</span>
+            </p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById("button").addEventListener("click", function(event){
+            event.preventDefault()
+        });
+        function addStudents() {
+            let input = document.getElementById('input').value.split("\n");
+            let result = document.getElementById('result');
+
+           let studentsArr = [];
+
+           input.forEach(line => {
+               let student = line.split(' ');
+            let obj= {
+                'firstName' :student[0],
+                'lastName' : student[1],
+                'grade' : Number(student[2])
+            };
+            
+            // obj['firstName'] = student[0];
+            // obj['lastName'] = student[1];
+            // obj['grade'] = Number(student[2]);
+
+            studentsArr.push(obj);
+           }); 
+
+           let grades = studentsArr.map(s => s.grade).reduce((a,b) => a+b);
+           let averageGrade = grades / studentsArr.length;
+
+           let stringResult = 'Students are:';
+           stringResult += studentsArr.map(s =>  `${s.firstName} ${s.lastName}`).join(', ');
+           stringResult += '\n';
+           stringResult += "Average grade: ";
+           stringResult += averageGrade
+
+           result.textContent = stringResult;
+
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- let studentsArr = [];
+            
+
+input.forEach(line => {
+
+    let currentStudent = line.split(' ');
+    let student = {};
+
+    student['firstName'] = currentStudent[0];
+    student['lastName'] = currentStudent[1];
+    student['grade'] = Number(currentStudent[2]);
+
+    studentsArr.push(student);
+});  
+
+//  works
+// let studentsNames = [];
+// studentsArr.forEach(student => {
+
+//     studentName = student.firstName + " " + student.lastName;
+//     studentsNames.push(studentName);
+
+// });
+// result.textContent += studentsNames.join(',');
+
+let resultString = '';    
+let grades = studentsArr.map(s => s['grade']).reduce((a,b) => a+b);
+let totalGrade = grades / studentsArr.length; 
+
+resultString = 'Students are: ';
+resultString += studentsArr.map(s => `${s.firstName} ${s.lastName}`).join(', ');
+resultString += "\n";
+resultString += "Average grade: ";
+resultString += totalGrade;    
+
+result.textContent = resultString;     -->

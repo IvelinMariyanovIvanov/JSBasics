@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="template.css">
+	<script src="solution.js"></script>
+    <title>Visited Sites</title>
+</head>
+
+<body>
+<div id="container">
+    <nav id="navigation">
+        <div id="navigation-text">
+            <p id="lecture-name">Intro to DOM</p>
+            <p id="problem-name">Visited Sites</p>
+        </div>
+        <img id="logo-img" src="images/logo.png" alt="logo">
+    </nav>
+    <main id="main">
+        <div id="exercise">
+			<div>
+				<a href="#" id="SoftUni" onclick="solve1(this.id)">SoftUni</a>
+				<span id="SoftUniSpan">Visited: 1 times</span>
+			</div>
+			 <div>
+				<a href="#" id="Google" onclick="solve1(this.id)">Google</a>
+				<span>Visited: 2 times</span>
+			</div>
+			<div>
+				<a href="#" id="YouTube" onclick="solve1(this.id)">YouTube</a>
+				<span>Visited: 3 times</span>
+			</div>
+			<div>
+				<a href="#" id="Wikipedia" onclick="solve1(this.id)">Wikipedia</a>
+				<span>Visited: 4 times</span>
+			</div>
+			<div>
+				<a href="#" id="Gmail" onclick="solve1(this.id)">Gmail</a>
+				<span>Visited: 5 times</span>
+			</div>
+			<div>
+				<a href="#" id="Stackoverflow" onclick="solve1(this.id)">Stackoverflow</a>
+				<span>Visited: 6 times</span>
+			</div>
+        </div>
+        <img id="softUni-person-img" src="images/wizard.png" alt="softUni-person">
+    </main>
+</div>
+<script>
+solve();
+
+</script>
+</body>
+
+</html>
